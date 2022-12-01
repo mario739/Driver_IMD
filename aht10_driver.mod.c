@@ -28,8 +28,14 @@ __used __section("__versions") = {
 	{ 0x3868185, "module_layout" },
 	{ 0xf93983f6, "i2c_del_driver" },
 	{ 0xf4cb7bdc, "i2c_register_driver" },
-	{ 0xa0b3694, "misc_register" },
+	{ 0x8f678b07, "__stack_chk_guard" },
+	{ 0x86332725, "__stack_chk_fail" },
+	{ 0x5f754e5a, "memset" },
+	{ 0x2cfde9a2, "warn_slowpath_fmt" },
+	{ 0x51a910c0, "arm_copy_to_user" },
 	{ 0x97e696e1, "i2c_transfer_buffer_flags" },
+	{ 0xae353d77, "arm_copy_from_user" },
+	{ 0xa0b3694, "misc_register" },
 	{ 0x7f4482b1, "misc_deregister" },
 	{ 0xc5850110, "printk" },
 	{ 0xb1ad28e0, "__gnu_mcount_nc" },
@@ -40,4 +46,4 @@ MODULE_INFO(depends, "");
 MODULE_ALIAS("of:N*T*Caht10_dev");
 MODULE_ALIAS("of:N*T*Caht10_devC*");
 
-MODULE_INFO(srcversion, "5F1F8C0F7B38A8D905715BA");
+MODULE_INFO(srcversion, "62C460527C215CCD7BB739D");

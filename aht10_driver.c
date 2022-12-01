@@ -4,7 +4,6 @@
 #include <linux/miscdevice.h>
 
 
-
 #define DEVICE_NAME "aht10_dev"
 
 static struct i2c_client  *aht10_i2c_client;
@@ -24,13 +23,18 @@ static int aht10_dev_close(struct inode *inode, struct file *file)  {
 
 static ssize_t aht10_dev_read (struct file *file, char __user *buffer, size_t len, loff_t *offset) {
     
-    i2c_master_recv(aht10_i2c_client,buffer,len);
+    char pkbuffer[6]={0};
+    copy_from_user(pkbuffer,buffer,len);
+    i2c_master_recv(aht10_i2c_client,pkbuffer,len);
+    copy_to_user(buffer,pkbuffer, len);
     return 0;
 }
 
 static ssize_t aht10_dev_write (struct file *file, const char __user *buffer, size_t len, loff_t *offset){
-
-    i2c_master_send(aht10_i2c_client,buffer,len);
+    
+    char kbuffer[3]={0};
+    copy_from_user(kbuffer,buffer,len);
+    i2c_master_send(aht10_i2c_client,kbuffer,len);
     return 0;
 
 }
@@ -77,9 +81,6 @@ static int aht10_i2c_remove(struct i2c_client *client)
     misc_deregister(&aht10_miscdevice);
 	return 0;
 }
-
-
-
 
 static const struct of_device_id aht10_of_match[] = {
 	{ .compatible = "aht10_dev",},
