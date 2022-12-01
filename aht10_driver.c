@@ -23,10 +23,9 @@ static int aht10_dev_close(struct inode *inode, struct file *file)  {
 
 static ssize_t aht10_dev_read (struct file *file, char __user *buffer, size_t len, loff_t *offset) {
     
-    char pkbuffer[6]={0};
-    copy_from_user(pkbuffer,buffer,len);
-    i2c_master_recv(aht10_i2c_client,pkbuffer,len);
-    copy_to_user(buffer,pkbuffer, len);
+    char kbuffer[6]={0};
+    i2c_master_recv(aht10_i2c_client,kbuffer,len);
+    copy_to_user(buffer,kbuffer,len);
     return 0;
 }
 
