@@ -12,4 +12,5 @@ aht10_driver.mod.o
 app_aht10
 Module.symvers
 modules.order
+aht10_driver.o
 
