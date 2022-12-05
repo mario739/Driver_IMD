@@ -60,14 +60,15 @@ static int aht10_i2c_probe(struct i2c_client *client, const struct i2c_device_id
     int ret_val;
     aht10_i2c_client=client;
     
+    /*register device in the kernel*/
     ret_val = misc_register(&aht10_miscdevice);
 
     if (ret_val != 0) 
     {
-        pr_err("could not register the misc device mydev");
+        pr_err("could not register the misc device aht10_dev");
 	    return ret_val;
     }
-        pr_info("mydev: got minor %i\n",aht10_miscdevice.minor);
+        pr_info("aht10_dev: got minor %i\n",aht10_miscdevice.minor);
         return 0;
 	return 0;
 }
