@@ -1,1 +1,0 @@
-cmd_/home/mario/Documents/IMD/Driver_IMD/aht10_driver.ko := arm-linux-ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/mario/Documents/IMD/Driver_IMD/aht10_driver.ko /home/mario/Documents/IMD/Driver_IMD/aht10_driver.o /home/mario/Documents/IMD/Driver_IMD/aht10_driver.mod.o;  true
