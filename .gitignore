@@ -1,15 +1,15 @@
-.vscode
-.aht10_driver.ko.cmd
-.aht10_driver.mod.cmd
-.aht10_driver.mod.o.cmd
-.aht10_driver.o.cmd
-.Module.symvers.cmd
-.modules.order.cmd
+# .vscode
+# .aht10_driver.ko.cmd
+# .aht10_driver.mod.cmd
+# .aht10_driver.mod.o.cmd
+# .aht10_driver.o.cmd
+# .Module.symvers.cmd
+# .modules.order.cmd
 aht10_driver.ko
-aht10_driver.mod
-aht10_driver.mod.c
-aht10_driver.mod.o
-app_aht10
-Module.symvers
-modules.order
+# aht10_driver.mod
+# aht10_driver.mod.c
+# aht10_driver.mod.o
+# app_aht10
+# Module.symvers
+# modules.order
 
