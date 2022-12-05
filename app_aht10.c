@@ -17,17 +17,17 @@ int main(void){
     uint8_t humedity=0;
     int8_t temperature=0;
 
-    int my_dev = open("/dev/aht10_dev",O_RDWR);
+    int dev_aht10 = open("/dev/aht10_dev",O_RDWR);
     
-    if (my_dev < 0) {
+    if (dev_aht10 < 0) {
         perror("Fail to open device file: /dev/aht10_dev");
     } 
     else 
     {
         while (1)
         {
-            write(my_dev,cmd,3);
-            read(my_dev,buffer_read,6);
+            write(dev_aht10,cmd,3);
+            read(dev_aht10,buffer_read,6);
             data=(((uint32_t)buffer_read[1]<<16) | ((uint16_t)buffer_read[2]<<8) | (buffer_read[3]))>>4;
             humedity=HUMEDITY(data);
             data=((uint32_t)(buffer_read[3] & 0x0F)<<16) | ((uint16_t) buffer_read[4]<<8)| buffer_read[5];
@@ -35,7 +35,8 @@ int main(void){
             printf("humedad %u temperature %i \n",humedity,temperature);
             sleep(1);
         }
-        close(my_dev);       
+        //cerrar el archivo por que si no no se podra usar en otra aplicacion 
+        close(dev_aht10);       
     }
     return 0;
 }
